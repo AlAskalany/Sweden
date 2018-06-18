@@ -16,11 +16,13 @@ public class DummyContent {
     /**
      * An array of sample (dummy) items.
      */
+    @SuppressWarnings("Convert2Diamond")
     public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
+    @SuppressWarnings("Convert2Diamond")
     public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
 
     private static final int COUNT = 25;
