@@ -41,6 +41,9 @@ public class ItemDetailFragment extends Fragment {
     public ItemDetailFragment() {
     }
 
+    /**
+     * @param savedInstanceState {@link Bundle} Fragment's saved instance state if exists
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +65,12 @@ public class ItemDetailFragment extends Fragment {
         }
     }
 
+    /**
+     * @param inflater           {@link LayoutInflater}
+     * @param container          {@link ViewGroup}
+     * @param savedInstanceState {@link Bundle} Fragment's saved instance state if exists
+     * @return {@link View} Root view
+     */
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

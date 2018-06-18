@@ -33,6 +33,11 @@ public class ItemListActivity extends AppCompatActivity {
      */
     private boolean mTwoPane;
 
+    /**
+     * Perform activity initialization
+     *
+     * @param savedInstanceState activity's saved instance if exists
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,17 +61,39 @@ public class ItemListActivity extends AppCompatActivity {
         setupRecyclerView((RecyclerView) recyclerView);
     }
 
+    /**
+     * @param recyclerView Recycler view for List Items
+     */
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, DummyContent.ITEMS, mTwoPane));
     }
 
+    /**
+     * SimpleItemRecyclerViewAdapter
+     * Recycler view adapter for list items
+     */
     public static class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
+        /**
+         * Parent activity
+         */
         private final ItemListActivity mParentActivity;
+        /**
+         * List items' values
+         */
         private final List<DummyContent.DummyItem> mValues;
+        /**
+         * True if two pane
+         */
         private final boolean mTwoPane;
+        /**
+         * {@link android.view.View.OnClickListener} Listener for List items
+         */
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
+            /**
+             * @param view List item view
+             */
             @Override
             public void onClick(View view) {
                 DummyContent.DummyItem item = (DummyContent.DummyItem) view.getTag();
@@ -88,6 +115,11 @@ public class ItemListActivity extends AppCompatActivity {
             }
         };
 
+        /**
+         * @param parent  {@link ItemListActivity} Parent activity
+         * @param items   List of items
+         * @param twoPane true if two pane
+         */
         SimpleItemRecyclerViewAdapter(ItemListActivity parent,
                                       List<DummyContent.DummyItem> items,
                                       boolean twoPane) {
@@ -96,6 +128,11 @@ public class ItemListActivity extends AppCompatActivity {
             mTwoPane = twoPane;
         }
 
+        /**
+         * @param parent   {@link ViewGroup} Parent ViewGroup
+         * @param viewType List Item view type
+         * @return {@link ViewHolder} List Item ViewHolder
+         */
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -104,6 +141,10 @@ public class ItemListActivity extends AppCompatActivity {
             return new ViewHolder(view);
         }
 
+        /**
+         * @param holder   List Item ViewHolder
+         * @param position List Item position
+         */
         @Override
         public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
             holder.mIdView.setText(mValues.get(position).id);
@@ -113,15 +154,25 @@ public class ItemListActivity extends AppCompatActivity {
             holder.itemView.setOnClickListener(mOnClickListener);
         }
 
+        /**
+         * @return Number of List Items
+         */
         @Override
         public int getItemCount() {
             return mValues.size();
         }
 
+        /**
+         * ViewHolder
+         * View holder for list item
+         */
         class ViewHolder extends RecyclerView.ViewHolder {
             final TextView mIdView;
             final TextView mContentView;
 
+            /**
+             * @param view List Item view
+             */
             ViewHolder(View view) {
                 super(view);
                 //noinspection RedundantCast

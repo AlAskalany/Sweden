@@ -25,6 +25,9 @@ public class DummyContent {
     @SuppressWarnings("Convert2Diamond")
     public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
 
+    /**
+     * Items count
+     */
     private static final int COUNT = 25;
 
     static {
@@ -34,15 +37,32 @@ public class DummyContent {
         }
     }
 
+    /**
+     * Add item
+     *
+     * @param item {@link DummyItem} Item
+     */
     private static void addItem(DummyItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
     }
 
+    /**
+     * Create dummy item
+     *
+     * @param position {@link int} Item's position
+     * @return {@link DummyItem} Item
+     */
     private static DummyItem createDummyItem(int position) {
         return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
     }
 
+    /**
+     * Make item details
+     *
+     * @param position {@link int} Item's position
+     * @return {@link String} Item's details
+     */
     private static String makeDetails(int position) {
         StringBuilder builder = new StringBuilder();
         builder.append("Details about Item: ").append(position);
@@ -56,16 +76,37 @@ public class DummyContent {
      * A dummy item representing a piece of content.
      */
     public static class DummyItem {
+        /**
+         * Item's id
+         */
         public final String id;
+        /**
+         * Item's content
+         */
         public final String content;
+        /**
+         * Item's details
+         */
         public final String details;
 
+        /**
+         * DummyItem constructor
+         *
+         * @param id      {@link String} Item's id
+         * @param content {@link String} Item's content
+         * @param details {@link String} Item's details
+         */
         public DummyItem(String id, String content, String details) {
             this.id = id;
             this.content = content;
             this.details = details;
         }
 
+        /**
+         * toString helper method
+         *
+         * @return {@link String} Item's content
+         */
         @Override
         public String toString() {
             return content;

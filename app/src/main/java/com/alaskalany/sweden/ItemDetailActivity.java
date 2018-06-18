@@ -20,6 +20,9 @@ import androidx.core.app.NavUtils;
  */
 public class ItemDetailActivity extends AppCompatActivity {
 
+    /**
+     * @param savedInstanceState {@link Bundle} Activity's saved instance state if exists
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +65,10 @@ public class ItemDetailActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * @param item {@link MenuItem} Menu item
+     * @return {@link boolean} True if a menu item is selected
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
